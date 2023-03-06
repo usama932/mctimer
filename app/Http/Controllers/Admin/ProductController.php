@@ -24,8 +24,9 @@ class ProductController extends Controller
 			0 => 'id',
 			1 => 'name',
 			2 => 'category_id',
-			3 => 'created_at',
-			4 => 'action'
+			3 => 'expiry_date_time',
+			4 => 'created_at',
+			5 => 'action'
 		);
 		
 		$totalData = Product::count();
@@ -68,6 +69,7 @@ class ProductController extends Controller
 				$nestedData['id'] = '<td><label class="checkbox checkbox-outline checkbox-success"><input type="checkbox" name="products[]" value="'.$r->id.'"><span></span></label></td>';
 				$nestedData['name'] = $r->name;
 				$nestedData['category_id'] = $r->category_id;
+				$nestedData['expiry_date_time'] = date('d-m-Y',strtotime($r->expiry_date_time));
 				$nestedData['created_at'] = date('d-m-Y',strtotime($r->created_at));
 				$nestedData['action'] = '
                                 <div>

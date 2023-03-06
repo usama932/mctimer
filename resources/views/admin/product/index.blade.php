@@ -53,6 +53,7 @@
 
                                 <th>Name</th>
                                 <th>Category</th>
+                                <th>Expiry Date</th>
                                 <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
@@ -128,7 +129,9 @@
                 {
                     "data": "category_id"
                 },
-              
+                 {
+                    "data": "expiry_date_time"
+                },
                 {
                     "data": "created_at"
                 },
