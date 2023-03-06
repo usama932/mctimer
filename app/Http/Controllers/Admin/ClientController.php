@@ -20,12 +20,6 @@ class ClientController extends Controller
 	    return view('admin.clients.index',compact('title'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-	
 	public function getClients(Request $request){
 		$columns = array(
 			0 => 'id',
@@ -116,18 +110,21 @@ class ClientController extends Controller
 		echo json_encode($json_data);
 		
 	}
+	public function clientDetail(Request $request)
+	{
+		
+		$user = User::findOrFail($request->id);
+		
+		
+		return view('admin.clients.detail', ['title' => 'Client Detail', 'user' => $user]);
+	}
     public function create()
     {
 	    $title = 'Add New Client';
 	    return view('admin.clients.create',compact('title'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
 	    $this->validate($request, [
@@ -167,14 +164,7 @@ class ClientController extends Controller
 	    return view('admin.clients.single', ['title' => 'Client detail', 'user' => $user]);
     }
     
-	public function clientDetail(Request $request)
-	{
-		
-		$user = User::findOrFail($request->id);
-		
-		
-		return view('admin.clients.detail', ['title' => 'Client Detail', 'user' => $user]);
-	}
+
 
     /**
      * Show the form for editing the specified resource.

@@ -53,13 +53,28 @@ Route::group([
     Route::post('/admin-update', 'AdminController@update')->name('admin-update');
     //Setting Routes
     Route::resource('setting','SettingController');
+    //Category
+    Route::resource('categories','CategoryController');
+    Route::post('get-categories', 'CategoryController@getCategories')->name('admin.getCategroies');
+	Route::post('get-category', 'CategoryController@categoryDetail')->name('admin.getCategory');
+	Route::get('category/delete/{id}', 'CategoryController@destroy');
+	Route::post('delete-selected-category', 'CategoryController@deleteSelectedCategory')->name('admin.delete-selected-category');
+
+
+    //Product
+    Route::resource('products','ProductController'); 
+    Route::post('get-products', 'ProductController@getProducts')->name('admin.getProducts');
+	Route::post('get-product', 'ProductController@productDetail')->name('admin.getProduct');
+	Route::get('product/delete/{id}', 'ProductController@destroy');
+	Route::post('delete-selected-products', 'ProductController@deleteSelectedProducts')->name('admin.delete-selected-products');
+
 
 	//User Routes
 	Route::resource('clients','ClientController');
 	Route::post('get-clients', 'ClientController@getClients')->name('admin.getClients');
 	Route::post('get-client', 'ClientController@clientDetail')->name('admin.getClient');
 	Route::get('client/delete/{id}', 'ClientController@destroy');
-	Route::post('delete-selected-clients', 'ClientController@deleteSelectedClients')->name('admin.delete-selected-clients');
+	Route::post('delete-selected-clients', 'ClientController@deleteSelectedCategory')->name('admin.delete-selected-clients');
 
 
 

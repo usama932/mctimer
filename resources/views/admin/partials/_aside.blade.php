@@ -76,57 +76,6 @@
 
 
 
-                {{-- <li class="menu-section"> --}}
-                {{-- <h4 class="menu-text">Clients</h4> --}}
-                {{-- <i class="menu-icon ki ki-bold-more-hor icon-md"></i> --}}
-                {{-- </li> --}}
-
-                {{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-									<a href="javascript:;" class="menu-link menu-toggle">
-										<span class="svg-icon menu-icon">
-
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Bucket.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									        <rect x="0" y="0" width="24" height="24"/>
-									        <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
-									        <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3"/>
-									    </g>
-											</svg>
-
-											<!--end::Svg Icon-->
-										</span>
-										<span class="menu-text">Manage Cilents</span>
-										<i class="menu-arrow"></i>
-									</a>
-									<div class="menu-submenu">
-										<i class="menu-arrow"></i>
-										<ul class="menu-subnav">
-											<li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span class="menu-text">Themes</span>
-												</span>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/themes/aside-light.html" class="menu-link">
-													<i class="menu-bullet menu-bullet-dot">
-														<span></span>
-													</i>
-													<span class="menu-text">Light Aside</span>
-												</a>
-											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/themes/header-dark.html" class="menu-link">
-													<i class="menu-bullet menu-bullet-dot">
-														<span></span>
-													</i>
-													<span class="menu-text">Dark Header</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li> --}}
-
                 <li class="menu-section">
                     <h4 class="menu-text">CMS</h4>
                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -134,7 +83,7 @@
 
                 <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'clients') {
                     echo 'menu-item-active';
-                } ?>" aria-haspopup="true">
+                    } ?>" aria-haspopup="true">
                     <a href="{{ route('clients.index') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
 
@@ -157,16 +106,50 @@
                     </a>
                 </li>
 
-             
+                <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'categories') {
+                    echo 'menu-item-active';
+                    } ?>" aria-haspopup="true">
+                    <a href="{{ route('categories.index') }}" class="menu-link">
+                        <span class="svg-icon menu-icon">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Cooking/Dishes.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path d="M3,16 L21,16 C21,18.209139 19.209139,20 17,20 L7,20 C4.790861,20 3,18.209139 3,16 Z M3,11 L21,11 L21,12 C21,13.1045695 20.1045695,14 19,14 L5,14 C3.8954305,14 3,13.1045695 3,12 L3,11 Z" fill="#000000"/>
+                                    <path d="M3,5 L21,5 L21,7 C21,8.1045695 20.1045695,9 19,9 L5,9 C3.8954305,9 3,8.1045695 3,7 L3,5 Z" fill="#000000" opacity="0.3"/>
+                                </g>
+                                </svg><!--end::Svg Icon-->
+                            </span>
+                        </span>
+                        <span class="menu-text">Categories</span>
+                    </a>
+                </li>
 
-				
                 
+                <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'products') {
+                    echo 'menu-item-active';
+                    } ?>" aria-haspopup="true">
+                    <a href="{{ route('products.index') }}" class="menu-link">
+                        <span class="svg-icon menu-icon">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Design/Interselect.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                    <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000"/>
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                            </span>
+                            </span>
+                        </span>
+                        <span class="menu-text">Products</span>
+                    </a>
+                </li>
 
-
-
+         
                 <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'setting') {
                     echo 'menu-item-active';
-                } ?>" aria-haspopup="true">
+                    } ?>" aria-haspopup="true">
                     <a href="{{ route('setting.index') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
 
