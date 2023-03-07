@@ -121,9 +121,9 @@ class AuthController extends Controller
             ];
         }
 
-        throw ValidationException::withMessages([
-            'email' => [trans($status)],
-        ]);
+        // throw ValidationException::withMessages([
+        //     'email' => [trans($status)],
+        // ]);
         $res = [
             'message' => "email Sent Succesfully",
         
