@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Models\User;
-use App\Traits\ApiResponser;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +17,7 @@ use Illuminate\Validation\Rules\Password as RulesPassword;
 
 class AuthController extends Controller
 {
-    use ApiResponser;
+  
 
     public function register(Request $request)
     {
