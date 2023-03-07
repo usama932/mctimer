@@ -114,13 +114,13 @@ class AuthController extends Controller
         $status = Password::sendResetLink(
             $request->only('email')
         );
-       
+        dd($status);
         if ($status == Password::RESET_LINK_SENT) {
             return [
                 'status' => __($status)
             ];
         }
-        dd($status);
+       
         // throw ValidationException::withMessages([
         //     'email' => [trans($status)],
         // ]);
