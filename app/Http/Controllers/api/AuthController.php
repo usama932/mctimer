@@ -120,7 +120,7 @@ class AuthController extends Controller
                 'status' => __($status)
             ];
         }
-
+        dd($status);
         // throw ValidationException::withMessages([
         //     'email' => [trans($status)],
         // ]);
