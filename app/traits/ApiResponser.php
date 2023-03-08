@@ -1,38 +1,27 @@
 <?php
 
 namespace App\Traits;
-
-use Carbon\Carbon;
-
-/*
-|--------------------------------------------------------------------------
-| Api Responser Trait
-|--------------------------------------------------------------------------
-|
-| This trait will be used for any response we sent to clients.
-|
-*/
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 trait ApiResponser
 {
+    private function successResponse($data, $code)
+    {
+        return response()->json($data, $code);
+    }
 
-	protected function success($data, string $message = null, int $code = 200)
-	{
-		return response()->json([
-			'status' => 'Success',
-			'message' => $message,
-			'data' => $data
-		], $code);
-	}
-
-	
-	protected function error(string $message = null, int $code, $data = null)
-	{
-		return response()->json([
-			'status' => 'Error',
-			'message' => $message,
-			'data' => $data
-		], $code);
-	}
-
+    protected function errorResponse($message, $code)
+    {
+        return response()->json(['message' => $message, 'code' => $code,'error'=>true], $code);
+    }
+    protected function showAll(Collection $collection, $code=200,$message='')
+    {
+        return $this->successResponse(['data' => $collection,'error'=>false,'message' => $message], $code);
+    }
+    protected function showOne(Model $model, $code=200,$message='')
+    {
+        return $this->successResponse(['data' => $model,'error'=>false,'message' => $message], $code);
+    }
+   
 }

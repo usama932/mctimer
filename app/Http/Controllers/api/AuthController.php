@@ -4,6 +4,9 @@ namespace App\Http\Controllers\api;
 
 use App\Models\User;
 
+use App\Http\Controllers\ApiController;
+use DB;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -16,53 +19,66 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Validation\Rules\Password as RulesPassword;
 
 
-class AuthController extends Controller
+class AuthController extends ApiController
 {
   
 
     public function register(Request $request)
     {
-       
-        $validate_request = Validator::make(
-
-            $request->all(),
-
-            array(
-                'email' => 'required|string|unique:users,email',
-                'password' => 'required',
-                'name'    => 'required|string',
-
-            ));
-
-        if ($validate_request->fails())
+        try
         {
-                $error = $validate_request->errors()->first();
-                $res = [
-                    'error' => $error,
-                ];
-                return response()->json($res, 200);
+
+            $validate_request = Validator::make(
+
+                $request->all(),
+
+                array(
+                    'email' => 'required|string|unique:users,email',
+                    'password' => 'required',
+                    'name'    => 'required|string',
+
+                ));
+
+            if ($validate_request->fails())
+            {
+                    $error = $validate_request->errors()->first();
+                    $res = [
+                        'error' => $error,
+                    ];
+                    return response()->json($res, 200);
+            }
+        
+            $user = User::create([
+                'name' => $request->name,
+                'password' => bcrypt($request->password),
+                'email' => $request->email,
+                'is_admin' => 0,
+                'active'   => 0,
+            ]);
+            $token = $user->createToken('apiToken')->plainTextToken;
+
+            $res = [
+                'user' => $user,
+                'token' => $token
+            ];
+
+            return response()->json($res, 200);
+        }catch(Exception $e)
+        {
+
+
+
+            return $this->errorResponse($e->getMessage(), 200);
+
         }
-       
-        $user = User::create([
-            'name' => $request->name,
-            'password' => bcrypt($request->password),
-            'email' => $request->email,
-            'is_admin' => 0,
-            'active'   => 0,
-        ]);
-        $token = $user->createToken('apiToken')->plainTextToken;
-
-        $res = [
-            'user' => $user,
-            'token' => $token
-        ];
-
-        return response()->json($res, 200);
+            
       
     }
 
     public function login(Request $request)
-    {
+    {   
+        try
+        {
         $data = $request->validate([
             'email' => 'required',
             'password' => 'required|string'
@@ -90,45 +106,83 @@ class AuthController extends Controller
     
             return response()->json($res, 200);
         }
+        }catch(Exception $e){
+
+
+
+            return $this->errorResponse($e->getMessage(), 200);
+
+        }
+
       
     }
 
     public function logout()
     {
-        auth()->user()->tokens()->delete();
+        try{
 
-        $res = [
-            'message' => "Logout Succesfully",
-        
-        ];
+            $user = auth()->user();
 
-        return response()->json($res, 200);
+          
+
+            if ($user){
+
+                $accessToken = auth()->user()->token()->delete();
+
+              
+
+                return response([
+
+                    'message' => "Logout Successfully",
+
+                    "error" => false
+
+                ],200);
+
+            }else{
+
+                return response([
+
+                    'message' => "User Not Found",
+
+                    "error" => false
+
+                ],200);
+
+            }
+
+        }catch(Exception $e){
+
+            return response([
+
+                'message' => "User Not Found",
+
+                "error" => false
+
+            ],200);
+
+        }
+
     }
     public function forgotPassword(Request $request)
     {
      
-        $request->validate([
-            'email' => 'required|email',
-        ]);
-       
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-        
-        if ($status == Password::RESET_LINK_SENT) {
-            return [
-                'status' => __($status)
-            ];
-        }
-       
-        // throw ValidationException::withMessages([
-        //     'email' => [trans($status)],
-        // ]);
-        $res = [
-            'message' => "email Sent Succesfully",
-        
-        ];
+        $credentials = request()->validate(['email' => 'required|email']);
 
-        return response()->json($res, 200);
+
+
+        Password::sendResetLink($credentials);
+
+        {
+
+            return response([
+
+                'message' => "Reset password link sent on your email ",
+
+                'error' => true
+
+            ], 200);
+
+        }
     }
 }
