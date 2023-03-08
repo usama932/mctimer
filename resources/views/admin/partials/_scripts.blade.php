@@ -25,6 +25,13 @@
         }, 1000);
     });
 </script>
+<script>
+$(function () {
+             $('.datetimepicker').datetimepicker();
+         });
+  
+      
+</script>
 @yield('scripts')
 
 

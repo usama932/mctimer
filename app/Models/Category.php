@@ -14,5 +14,16 @@ class Category extends Model
     public function product(){
         return $this->hasMany('App\Models\Product' ,'category_id','id');
     }
-
+   
+    public function getStatusAttribute($value)
+    { 
+       if($value == 1){
+        $value = 'Active';
+        return $value;
+       }
+       else{
+        $value = 'InActive';
+        return $value;
+       }  
+    }
 }

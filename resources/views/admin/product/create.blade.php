@@ -86,12 +86,12 @@
                         </select>
                       </div>
                     </div>
+                    
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Date</label>
                       <div class="col-9">
                       
-                          {{ Form::date('expiry_date', null, ['class' => 'form-control form-control-solid','id'=>'expiry_date','placeholder'=>'Enter expiry_date','required'=>'true']) }}
-                          <span class="text-danger">{{ $errors->first('expiry_date') }}</span>
+                          <input type="datetime-local" name="expiry_date" class="form-control form-control-solid">
                        
                       </div>
                     </div>

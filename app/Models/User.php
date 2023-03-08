@@ -41,10 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected function firstName(): Status
-    {
-        return Status::make(
-            get: fn ($value) => ucfirst($value),
-        );
+    public function getStatusAttribute($value)
+    { 
+       if($value == 1){
+        $value = 'Active';
+        return $value;
+       }
+       else{
+        $value = 'InActive';
+        return $value;
+       }
     }
 }

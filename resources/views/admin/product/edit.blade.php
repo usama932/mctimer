@@ -90,9 +90,8 @@
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Date</label>
                       <div class="col-9">
-                        
-                         <input type="date" class="form-control form-control-solid" value="{{ date('m/d/Y', strtotime($products->expiry_date_time))}}"
-                          <span class="text-danger">{{ $errors->first('expiry_date') }}</span>
+                         
+                        <input type="datetime-local" name="expiry_date" class="form-control form-control-solid" value="{{$products->expiry_date_time}}">
                        
                       </div>
                     </div>
