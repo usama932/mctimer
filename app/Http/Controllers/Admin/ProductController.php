@@ -36,7 +36,7 @@ class ProductController extends Controller
 		$dir = $request->input('order.0.dir');
 		
 		if(empty($request->input('search.value'))){
-			$products = Product::offset($start)
+			$products = Product::with('category')->offset($start)
 				->limit($limit)
 				->orderBy($order,$dir)
 				->get();
@@ -47,6 +47,7 @@ class ProductController extends Controller
 				['name', 'like', "%{$search}%"],
 			])
 				->orWhere('created_at','like',"%{$search}%")
+				->with('category')
 				->offset($start)
 				->limit($limit)
 				->orderBy($order, $dir)
@@ -68,7 +69,7 @@ class ProductController extends Controller
 				$edit_url = route('products.edit',$r->id);
 				$nestedData['id'] = '<td><label class="checkbox checkbox-outline checkbox-success"><input type="checkbox" name="products[]" value="'.$r->id.'"><span></span></label></td>';
 				$nestedData['name'] = $r->name;
-				$nestedData['category_id'] = $r->category_id;
+				$nestedData['category_id'] = $r->category->name;
 				$nestedData['expiry_date_time'] = date('d-m-Y',strtotime($r->expiry_date_time));
 				$nestedData['created_at'] = date('d-m-Y',strtotime($r->created_at));
 				$nestedData['action'] = '
