@@ -60,6 +60,7 @@
           <div class="card-body">
           @include('admin.partials._messages')
           <!--begin::Form-->
+            
             {{ Form::open([ 'route' => 'products.store','class'=>'form' ,"id"=>"product_add_form", 'enctype'=>'multipart/form-data']) }}
               @csrf
               <div class="row">
@@ -87,12 +88,34 @@
                       </div>
                     </div>
                     
-                    <div class="form-group row">
-                      <label class="col-3 col-form-label">Expiry Date</label>
+                    <div class="form-group row {{ $errors->has('image') ? 'has-error' : '' }}">
+                      <label class="col-3">Thumbnail Image</label>
                       <div class="col-9">
-                      
-                          <input type="datetime-local" name="expiry_date" class="form-control form-control-solid">
+                        <input type="file" name="image" class="form-control form-control-solid">
+                      </div>
+                    </div>
+                    
+
+                    <div class="form-group row">
+                      <label class="col-3 col-form-label">Expiry Year</label>
+                      <div class="col-3">
+                          <input type="number" name="year" class="form-control form-control-solid">  
+                      </div>
+                      <label class="col-3 col-form-label">Expiry Month</label>
+                      <div class="col-3">
+                          <input type="number" name="month" class="form-control form-control-solid">  
+                      </div>
+                    </div>
+
                        
+                    <div class="form-group row">
+                      <label class="col-3 col-form-label">Expiry Day</label>
+                      <div class="col-3">
+                          <input type="number" name="days" class="form-control form-control-solid">  
+                      </div>
+                      <label class="col-3 col-form-label">Expiry hours</label>
+                      <div class="col-3">
+                          <input type="number" name="hours" class="form-control form-control-solid">  
                       </div>
                     </div>
 

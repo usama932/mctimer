@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'status','category_id','expiry_date_time'
+        'name', 'status','category_id','expiry_date','image'
     ];
     public function category(){
         return $this->belongsTo('App\Models\Category','category_id','id');

@@ -120,67 +120,85 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-	
+		
         $this->validate($request, [
 		    'name'      => 'required|max:255',
-            'category'  => 'required',
-            'expiry_date' => 'required',
-		
+            'category'  => 'required'
 	    ]);
+		
+		$year = $request->year ?? '0';
+		$month = $request->month  ?? '0';
+		$days = $request->days  ?? '0';
+		$hours = $request->hours  ?? '0';
+	
+		$expiry =array("year"=>$year, "month"=>$month, "days"=>$days,"hours"=>$hours);
+		$thumbnail = "no image";
+		$expiry_date = json_encode($expiry , true);
+		if ($request->hasFile('image')) {
+			if ($request->file('image')->isValid()) {
+				$this->validate($request, [
+					'image' => 'required|mimes:jpeg,png,jpg'
+				]);
+				$file = $request->file('image');
+				$destinationPath = public_path('/uploads');
+				//$extension = $file->getClientOriginalExtension('logo');
+				$thumbnail = $file->getClientOriginalName('image');
+				$thumbnail = rand() . $thumbnail;
+				$request->file('image')->move($destinationPath, $thumbnail);
+				
+			}
+		}
         $product = Product::create([
             'name'          => $request->name,
-            'category_id'      => $request->category,
-            'expiry_date_time'   => $request->expiry_date,
+            'category_id'   => $request->category,
+            'expiry_date'   => $expiry_date,
+			'image'			=> $thumbnail
 
         ]);
         Session::flash('success_message', 'Great! Product has been Created successfully!');
         return redirect()->route('products.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit($id)
     {
         $title = 'Edit Products';
         $products = Product::findOrFail($id);
+		
+		$data = json_decode($products->expiry_date);
+		
         $categories = Category::where('status','1')->latest()->get();
-	    return view('admin.product.edit',compact('title','products','categories'));
+	    return view('admin.product.edit',compact('title','products','categories','data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
         $this->validate($request, [
 		    'name'      => 'required|max:255',
             'category'  => 'required',
-            'expiry_date' => 'required',
+           
 		
 	    ]);
+		$year = $request->year ?? '0';
+		$month = $request->month  ?? '0';
+		$days = $request->days  ?? '0';
+		$hours = $request->hours  ?? '0';
+
+		$expiry =array("year"=>$year, "month"=>$month, "days"=>$days,"hours"=>$hours);
+	
+		$expiry_date = json_encode($expiry , true);
+
         $product = Product::where('id',$id)->update([
             'name'          => $request->name,
-            'category_id'      => $request->category,
-            'expiry_date_time'   => $request->expiry_date,
+            'category_id'   => $request->category,
+            'expiry_date'   => $expiry_date,
 
         ]);
         Session::flash('success_message', 'Great! Product has been updated successfully!');

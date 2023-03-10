@@ -87,12 +87,39 @@
                         </select>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-3 col-form-label">Expiry Date</label>
+
+                    <div class="form-group row {{ $errors->has('iamge') ? 'has-error' : '' }}">
+                      <label class="col-3 col-form-label text-right ">Thumbnail Image:</label>
                       <div class="col-9">
-                         
-                        <input type="datetime-local" name="expiry_date" class="form-control form-control-solid" value="{{$products->expiry_date_time}}">
-                       
+
+
+                        <input type="file" class="form-control form-control-solid mb-3" name="iamge" id="image">
+                        <img src="{{asset("uploads/$products->image")}}" width="150px" height="100px" alt="">
+
+                        <small class=" form-text text-muted  ">Image size should be (160*160)</small>
+                      </div>
+                    </div>
+
+                     <div class="form-group row">
+                      <label class="col-3 col-form-label">Expiry Year</label>
+                      <div class="col-3">
+                          <input type="number" name="year" class="form-control form-control-solid" value="{{$data->year ?? ''}}">  
+                      </div>
+                      <label class="col-3 col-form-label">Expiry Month</label>
+                      <div class="col-3">
+                          <input type="number" name="month" class="form-control form-control-solid" value="{{$data->month ?? ''}}">  
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label class="col-3 col-form-label">Expiry Day</label>
+                      <div class="col-3">
+                          <input type="number" name="days" class="form-control form-control-solid" value="{{$data->days ?? ''}}">  
+                      </div>
+                      <label class="col-3 col-form-label">Expiry hours</label>
+                      <div class="col-3">
+                          <input type="number" name="hours" class="form-control form-control-solid" value="{{$data->hours ?? ''}}">  
                       </div>
                     </div>
 

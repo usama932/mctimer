@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->bigInteger('category_id')->nullable();
-            $table->timestamp('expiry_date_time')->nullable();
+            $table->string('expiry_date')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
