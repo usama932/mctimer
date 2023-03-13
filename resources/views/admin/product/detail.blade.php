@@ -11,7 +11,7 @@
 		</tr>
 		<tr>
 			<td>Expiry Date</td>
-			<td>{{$products->expiry_date_time ?? ''}}</td>
+			<td>{{$data->year}} Year, {{$data->month}} Month,{{$data->days}} Days,{{$data->hours}} Hours</td>
 		</tr>
 		<tr>
 			<td>Created at</td>

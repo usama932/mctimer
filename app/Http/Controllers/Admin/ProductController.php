@@ -66,11 +66,13 @@ class ProductController extends Controller
 		
 		if($products){
 			foreach($products as $r){
+				
 				$edit_url = route('products.edit',$r->id);
 				$nestedData['id'] = '<td><label class="checkbox checkbox-outline checkbox-success"><input type="checkbox" name="products[]" value="'.$r->id.'"><span></span></label></td>';
 				$nestedData['name'] = $r->name;
 				$nestedData['category_id'] = $r->category->name;
-				$nestedData['expiry_date_time'] = date('d-m-Y H:i:s',strtotime($r->expiry_date_time));
+				$nestedData['expiry_date_time'] =$r->expiry_date;
+
 				$nestedData['created_at'] = date('d-m-Y',strtotime($r->created_at));
 				$nestedData['action'] = '
                                 <div>
@@ -107,8 +109,9 @@ class ProductController extends Controller
 		
 		$products = Product::where('id',$request->id)->with('category')->first();
 		
+		$data = json_decode($products->expiry_date);
 		
-		return view('admin.product.detail', ['title' => 'products Detail', 'products' => $products]);
+		return view('admin.product.detail', ['title' => 'products Detail', 'products' => $products,'data'=>$data]);
 	}
     
     public function create()
