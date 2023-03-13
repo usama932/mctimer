@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+
+
 class LoginController extends Controller
 {
     /*
@@ -51,6 +53,7 @@ class LoginController extends Controller
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
+               
                 return redirect()->route('admin.dashboard');
             }else{
                 return redirect()->route('client.dashboard');

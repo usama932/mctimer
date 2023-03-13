@@ -5,7 +5,7 @@
 	<div class="d-flex flex-column-fluid">
 		<!--begin::Container-->
 		<div class="container">
-			<!--begin::Dashboard-->
+			{{-- <!--begin::Dashboard-->
 			<!--begin::Row-->
 			<div class="row">
 				<div class="col-lg-6 col-xxl-4">
@@ -222,7 +222,7 @@
 			<!--begin::Row-->
 
 			<!--end::Row-->
-			<!--end::Dashboard-->
+			<!--end::Dashboard--> --}}
 		</div>
 		<!--end::Container-->
 	</div>

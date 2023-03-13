@@ -21,35 +21,35 @@ class SettingController extends Controller
     {
         $settings = Setting::pluck('value','name')->all();
         $all_columns =array(
-            array(
-                'name'=>'site_title',
-                'id'=>'site_title',
-                'type'=>'text',
-                'label'=>'Site Title',
-                'place_holder'=>'Enter Site Title',
-                'class'=>'form-control form-control-solid',
-                'style'=>'width:30px;max-width:100%;margin-top:12px'
-            ),
-            array(
-                'name'=>'meta_keywords',
-                'id'=>'meta_keywords',
-                'type'=>'textarea',
-                'label'=>'Meta Keywords',
-                'place_holder'=>'Enter Site Meta Keywords separated by common limit 9 words',
-                'class'=>'form-control form-control-solid',
-                'style'=>'width:30px;max-width:100%;margin-top:12px',
-                'rows'=>'2',
-            ),
-            array(
-                'name'=>'meta_desc',
-                'id'=>'meta_desc',
-                'type'=>'textarea',
-                'label'=>'Meta Description',
-                'place_holder'=>'Enter Site Meta Description limit 39 charaters',
-                'class'=>'form-control form-control-solid',
-                'style'=>'width:30px;max-width:100%;margin-top:12px',
-                'rows'=>'2',
-            ),
+            // array(
+            //     'name'=>'site_title',
+            //     'id'=>'site_title',
+            //     'type'=>'text',
+            //     'label'=>'Site Title',
+            //     'place_holder'=>'Enter Site Title',
+            //     'class'=>'form-control form-control-solid',
+            //     'style'=>'width:30px;max-width:100%;margin-top:12px'
+            // ),
+            // array(
+            //     'name'=>'meta_keywords',
+            //     'id'=>'meta_keywords',
+            //     'type'=>'textarea',
+            //     'label'=>'Meta Keywords',
+            //     'place_holder'=>'Enter Site Meta Keywords separated by common limit 9 words',
+            //     'class'=>'form-control form-control-solid',
+            //     'style'=>'width:30px;max-width:100%;margin-top:12px',
+            //     'rows'=>'2',
+            // ),
+            // array(
+            //     'name'=>'meta_desc',
+            //     'id'=>'meta_desc',
+            //     'type'=>'textarea',
+            //     'label'=>'Meta Description',
+            //     'place_holder'=>'Enter Site Meta Description limit 39 charaters',
+            //     'class'=>'form-control form-control-solid',
+            //     'style'=>'width:30px;max-width:100%;margin-top:12px',
+            //     'rows'=>'2',
+            // ),
             array(
                 'name' => 'favicon',
                 'id' => 'favicon',
@@ -210,9 +210,9 @@ class SettingController extends Controller
         foreach ($input as $key => $value) {
             $setting = new Setting();
 
-            $setting->name = $key;
+            $setting->name = $key ?? "";
 
-            $setting->value = $value;
+            $setting->value = $value ?? "";
 
             $setting->save();
 

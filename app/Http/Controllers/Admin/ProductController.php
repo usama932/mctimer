@@ -210,10 +210,10 @@ class ProductController extends Controller
     {
 	    $product = Product::find($id);
 	    if(!empty($product)){
-		    $category->delete();
-		    Session::flash('success_message', 'category successfully deleted!');
+		    $product->delete();
+		    Session::flash('success_message', 'product successfully deleted!');
 	    }
-	    return redirect()->route('categories.index');
+	    return redirect()->route('products.index');
 	   
     }
 	public function deleteSelectedCategory(Request $request)

@@ -168,7 +168,8 @@ class CategoryController extends Controller
     {
 	    $category = Category::find($id);
 	    if(!empty($category)){
-		    $category->delete();
+		    $category->product->each->delete();
+			$category->delete();
 		    Session::flash('success_message', 'category successfully deleted!');
 	    }
 	    return redirect()->route('categories.index');
@@ -185,6 +186,7 @@ class CategoryController extends Controller
 			
 			$category = Category::find($id);
 			if(!empty($category)){
+				$category->product->each->delete();
 				$category->delete();
 			}
 			

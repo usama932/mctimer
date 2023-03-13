@@ -44,7 +44,7 @@
 							<!--begin::Title-->
 							<div class="pb-13 pt-lg-0 pt-5">
 								<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
-									Welcome to Financial Dashboard Portal</h3>
+									Welcome to MCTimer Portal</h3>
 								{{--<span class="text-muted font-weight-bold font-size-h4">New Here?
 									<a href="javascript:;" id="kt_login_signup" class="text-primary font-weight-bolder">Create an Account</a></span>--}}
 								@if (Session::has('error'))

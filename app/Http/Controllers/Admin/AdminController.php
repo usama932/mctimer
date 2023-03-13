@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -17,8 +19,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $title = 'Financial Dashboard Admin';
-        return view('admin.dashboard.index',compact('title'));
+        $title = 'MCtimer Admin Dashboard';
+        $product = Product::count();
+        $category  = Category::count();
+        $users  = User::where('is_admin',"0")->count();
+        return view('admin.dashboard.index',compact('title','users','product','category'));
     }
 
     /**
