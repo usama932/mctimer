@@ -12,38 +12,31 @@
 					<!--begin::Mixed Widget 1-->
 					<div class="card card-custom bg-gray-100 card-stretch gutter-b">
 						<!--begin::Header-->
-						<div class="card-header border-0 bg-danger py-5">
-							<h3 class="card-title font-weight-bolder text-white">Stats</h3>
-							<div class="card-toolbar">
-								<div class="dropdown dropdown-inline">
-									
-								</div>
-							</div>
-						</div>
+					
 						<!--end::Header-->
 						<!--begin::Body-->
 						<div class="card-body p-0 position-relative overflow-hidden">
 							<!--begin::Chart-->
-							<div id="kt_mixed_widget_1_chart" class="card-rounded-bottom bg-danger" style="height: 200px"></div>
+							<div id="" class="card-rounded-bottom bg-danger" style="height: 200px"></div>
 							<!--end::Chart-->
 							<!--begin::Stats-->
 							<div class="card-spacer mt-n25">
 								<!--begin::Row-->
 								<div class="row m-0">
 									<div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
-															<span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-																<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
-																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																		<rect x="0" y="0" width="24" height="24" />
-																		<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5" />
-																		<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5" />
-																		<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5" />
-																		<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5" />
-																	</g>
-																</svg>
-																<!--end::Svg Icon-->
-															</span>
+											<span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24" />
+														<rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5" />
+														<rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5" />
+														<rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5" />
+														<rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5" />
+													</g>
+												</svg>
+												<!--end::Svg Icon-->
+											</span>
 										<a href="#" class="text-warning font-weight-bold font-size-h6">Users  ({{$users ?? '0'}})</a>
 									</div>
 									<div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
