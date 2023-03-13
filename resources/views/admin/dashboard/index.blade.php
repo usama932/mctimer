@@ -30,7 +30,7 @@
 							<div class="card-spacer mt-n25">
 								<!--begin::Row-->
 								<div class="row m-0">
-									{{-- <div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
+									<div class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
 															<span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
 																<!--begin::Svg Icon | path:assets/media/svg/icons/Media/Equalizer.svg-->
 																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -45,7 +45,7 @@
 																<!--end::Svg Icon-->
 															</span>
 										<a href="#" class="text-warning font-weight-bold font-size-h6">Users  ({{$users ?? '0'}})</a>
-									</div> --}}
+									</div>
 									<div class="col bg-light-primary px-6 py-8 rounded-xl mb-7">
 															<span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
 																<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->

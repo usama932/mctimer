@@ -81,7 +81,7 @@
                     <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                 </li>
 
-                {{-- <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'clients') {
+                <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'clients') {
                     echo 'menu-item-active';
                     } ?>" aria-haspopup="true">
                     <a href="{{ route('clients.index') }}" class="menu-link">
@@ -104,7 +104,7 @@
                         </span>
                         <span class="menu-text">Manage Users</span>
                     </a>
-                </li> --}}
+                </li>
 
                 <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'categories') {
                     echo 'menu-item-active';
