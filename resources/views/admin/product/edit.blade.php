@@ -103,11 +103,22 @@
                      <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Years</label>
                       <div class="col-3">
-                          <input type="number" name="year" class="form-control form-control-solid" value="{{$data->year ?? ''}}">  
+                        <select id="year" name="year" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 12; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid" @if($i == $data->year) selected @endif>{{ $i }}</option>
+                          
+                          @endfor
+                        </select>            
                       </div>
                       <label class="col-3 col-form-label">Expiry Months</label>
                       <div class="col-3">
-                          <input type="number" name="month" class="form-control form-control-solid" value="{{$data->month ?? ''}}">  
+                        <select id="month" name="month" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 12; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid" @if($i == $data->month) selected @endif>{{ $i }}</option>
+                          
+                          @endfor
+                        </select>
+                        
                       </div>
                     </div>
 
@@ -115,11 +126,22 @@
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Days</label>
                       <div class="col-3">
-                          <input type="number" name="days" class="form-control form-control-solid" value="{{$data->days ?? ''}}">  
+                        <select id="days" name="days" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 31; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid" @if($i == $data->days) selected @endif>{{ $i }}</option>
+                          
+                          @endfor
+                        </select>  
                       </div>
                       <label class="col-3 col-form-label">Expiry hours</label>
                       <div class="col-3">
-                          <input type="number" name="hours" class="form-control form-control-solid" value="{{$data->hours ?? ''}}">  
+                        <select id="days" name="days" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 24; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid" @if($i == $data->hours) selected @endif>{{ $i }}</option>
+                          
+                          @endfor
+                        </select>  
+                         
                       </div>
                     </div>
 

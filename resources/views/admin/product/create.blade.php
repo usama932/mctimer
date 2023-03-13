@@ -99,11 +99,22 @@
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Years</label>
                       <div class="col-3">
-                          <input type="number" name="year" class="form-control form-control-solid" placeholder="1">  
+                        <select id="year" name="year" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 12; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                          }
+                          @endfor
+                        </select>
+                        
                       </div>
                       <label class="col-3 col-form-label">Expiry Months</label>
                       <div class="col-3">
-                          <input type="number" name="month" class="form-control form-control-solid" placeholder="1">  
+                          <select id="month" name="month" class="form-control form-control-solid">
+                            @for ($i = 0; $i <= 12; ++$i) {
+                              <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                            }
+                            @endfor
+                          </select>  
                       </div>
                     </div>
 
@@ -111,11 +122,21 @@
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Days</label>
                       <div class="col-3">
-                          <input type="number" name="days" class="form-control form-control-solid" placeholder="1">  
+                        <select id="days" name="days" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 31; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                          }
+                          @endfor
+                        </select>  
                       </div>
                       <label class="col-3 col-form-label">Expiry hours</label>
                       <div class="col-3">
-                          <input type="number" name="hours" class="form-control form-control-solid" placeholder="1">  
+                        <select id="days" name="hours" class="form-control form-control-solid ">
+                          @for ($i = 0; $i <= 24; ++$i) {
+                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                          }
+                          @endfor
+                        </select>  
                       </div>
                     </div>
 
