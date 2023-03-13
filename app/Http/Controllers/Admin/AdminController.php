@@ -96,8 +96,8 @@ class AdminController extends Controller
 				]);
 				$file = $request->file('profile_image');
 				$destinationPath = public_path('/uploads');
-				//$extension = $file->getProductOriginalExtension('logo');
-				$thumbnail = $file->getProductOriginalName('image');
+				//$extension = $file->getClientOriginalExtension('logo');
+				$thumbnail = $file->getClientOriginalName('image');
 				$thumbnail = rand() . $thumbnail;
 				// $request->file('image')->move($destinationPath, $thumbnail);
                 $input['profile_image'] = $thumbnail;
