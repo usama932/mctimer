@@ -154,7 +154,7 @@
 
         function del(id) {
             Swal.fire({
-                title: "Are you sure?",
+                title: "If you delete this category ,releted products will also deleted .Are you sure?",
                 text: "You won't be able to revert this!",
                 icon: "warning",
                 showCancelButton: true,
