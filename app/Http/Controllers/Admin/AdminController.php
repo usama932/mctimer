@@ -100,7 +100,7 @@ class AdminController extends Controller
 				$thumbnail = $file->getProductOriginalName('image');
 				$thumbnail = rand() . $thumbnail;
 				// $request->file('image')->move($destinationPath, $thumbnail);
-                $input['profile_image'] = $thumbnail
+                $input['profile_image'] = $thumbnail;
 			}
 		}
         $admin->fill($input)->save();
