@@ -4,7 +4,7 @@
 	$setting = \App\Models\Setting::pluck('value','name')->toArray();
 	$auth_logo = isset($setting['auth_logo']) ? 'uploads/'.$setting['auth_logo'] : 'assets/media/logos/logo-light.png';
 	$auth_page_heading = isset($setting['auth_page_heading']) ? $setting['auth_page_heading'] : 'www.financialdashboard.com';
-	$auth_image = isset($setting['auth_image']) ? 'uploads/'.$setting['auth_image'] : 'assets/media/svg/illustrations/login-visual-1.svg';
+	$auth_image = isset($setting['auth_image']) ? '"uploads/".$setting["auth_image"]' : 'assets/media/svg/illustrations/login-visual-1.svg';
 	$copy_right = isset($setting['copy_right']) ? $setting['copy_right'] : 'wwww.financialdashboard.com';
 	?>
 	<div class="d-flex flex-column flex-root">
