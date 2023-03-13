@@ -137,6 +137,8 @@ class ClientController extends Controller
 	    $user = new User();
 	    $user->name = $input['name'];
 	    $user->email = $input['email'];
+		$user->is_admin = '0';
+		$user->active = '1';
 	    // $res = array_key_exists('active', $input);
 	    // if ($res == false) {
 		//     $user->active = 0;

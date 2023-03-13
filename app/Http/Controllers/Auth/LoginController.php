@@ -61,14 +61,14 @@ class LoginController extends Controller
                 }
                 else{
                     return redirect()->route('login')
-                                    ->with('error','Authentication Failed. You are not Approved user.');
+                                    ->with('error','Authentication Failed. You are not Approved user.')->with("old_email", $request-email);
                 }
                 
             }
         }else{
 
             return redirect()->route('login')
-                ->with('error','Authentication Failed. Email or Password Is Invalid.');
+                ->with(['error'=>'Authentication Failed. Email or Password Is Invalid.',"old_email"=> $request->email]);
         }
 
     }

@@ -37,7 +37,7 @@
 					<!--begin::Signin-->
 					<div class="login-form login-signin">
 						<!--begin::Form-->
-						<form class="form" action="{{ route('login') }}" method="post" autocomplete="on" >
+						<form class="form" action="{{ route('login') }}" method="post" >
 
 							@csrf
 
@@ -56,7 +56,7 @@
 							<div class="form-group">
 
 								<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" value="{{ old('email') }}"  />
+								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" placeholder="{{ $old_email ??  old('email') ??  null }}" value="{{ $old_email ??  old('email') ??  null }}"  />
 								@error('email')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
 							</div>
 							<!--end::Form group-->
