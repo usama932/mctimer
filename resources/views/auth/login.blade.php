@@ -56,7 +56,7 @@
 							<div class="form-group">
 
 								<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" value="{{ old('email') }}" autocomplete="off" />
+								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" value="{{ old('email') }}"  />
 								@error('email')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
 							</div>
 							<!--end::Form group-->
