@@ -123,7 +123,7 @@
 				</div>
 				<!--end::Content body-->
 				<!--begin::Content footer-->
-				<div class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0">
+				{{-- <div class="d-flex justify-content-lg-start justify-content-center align-items-end py-7 py-lg-0">
 					<div class="text-dark-50 font-size-lg font-weight-bolder mr-10">
 						<span class="mr-1">{{ date('Y') }}©</span>
 						<a href="https://newswatchtv.com" target="_blank" class="text-dark-75 text-hover-primary">{{ $copy_right }}</a>
@@ -131,7 +131,7 @@
 					<a href="https://newswatchtv.com/reviews/" target="_blank" class="text-primary font-weight-bolder font-size-lg">Reviews</a>
 					<a href="https://newswatchtv.com/about-us/" target="_blank" class="text-primary ml-5 font-weight-bolder font-size-lg">About</a>
 					<a href="https://newswatchtv.com/contact-us/" target="_blank" class="text-primary ml-5 font-weight-bolder font-size-lg">Contact</a>
-				</div>
+				</div> --}}
 				<!--end::Content footer-->
 			</div>
 			<!--end::Content-->
