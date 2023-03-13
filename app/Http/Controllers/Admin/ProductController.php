@@ -77,14 +77,14 @@ class ProductController extends Controller
 				$nestedData['action'] = '
                                 <div>
                                 <td>
-                                    <a class="btn btn-sm btn-clean btn-icon" onclick="event.preventDefault();viewInfo('.$r->id.');" title="View Client" href="javascript:void(0)">
+                                    <a class="btn btn-sm btn-clean btn-icon" onclick="event.preventDefault();viewInfo('.$r->id.');" title="View Product" href="javascript:void(0)">
                                         <i class="icon-1x text-dark-50 flaticon-eye"></i>
                                     </a>
-                                    <a title="Edit Client" class="btn btn-sm btn-clean btn-icon"
+                                    <a title="Edit Product" class="btn btn-sm btn-clean btn-icon"
                                        href="'.$edit_url.'">
                                        <i class="icon-1x text-dark-50 flaticon-edit"></i>
                                     </a>
-                                    <a class="btn btn-sm btn-clean btn-icon" onclick="event.preventDefault();del('.$r->id.');" title="Delete Client" href="javascript:void(0)">
+                                    <a class="btn btn-sm btn-clean btn-icon" onclick="event.preventDefault();del('.$r->id.');" title="Delete Product" href="javascript:void(0)">
                                         <i class="icon-1x text-dark-50 flaticon-delete"></i>
                                     </a>
                                 </td>
@@ -144,8 +144,8 @@ class ProductController extends Controller
 				]);
 				$file = $request->file('image');
 				$destinationPath = public_path('/uploads');
-				//$extension = $file->getClientOriginalExtension('logo');
-				$thumbnail = $file->getClientOriginalName('image');
+				//$extension = $file->getProductOriginalExtension('logo');
+				$thumbnail = $file->getProductOriginalName('image');
 				$thumbnail = rand() . $thumbnail;
 				$request->file('image')->move($destinationPath, $thumbnail);
 				
