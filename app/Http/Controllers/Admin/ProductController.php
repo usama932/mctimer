@@ -66,12 +66,14 @@ class ProductController extends Controller
 		
 		if($products){
 			foreach($products as $r){
+				$expiry = json_decode($r->expiry_date, true);
+				$expiry_date = $expiry['year'].' year'.', '.$expiry['month'].' month'.', '.$expiry['days'].' days '.' and '.$expiry['hours'].' hours ';
 				
 				$edit_url = route('products.edit',$r->id);
 				$nestedData['id'] = '<td><label class="checkbox checkbox-outline checkbox-success"><input type="checkbox" name="products[]" value="'.$r->id.'"><span></span></label></td>';
 				$nestedData['name'] = $r->name;
 				$nestedData['category_id'] = $r->category->name;
-				$nestedData['expiry_date_time'] =$r->expiry_date;
+				$nestedData['expiry_date_time'] =$expiry_date;
 
 				$nestedData['created_at'] = date('d-m-Y',strtotime($r->created_at));
 				$nestedData['action'] = '
