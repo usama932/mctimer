@@ -47,9 +47,10 @@
 									<span class="navi-text text-muted text-hover-primary"> {{ Auth::user()->email }}</span>
 								</span>
 							</a>
-							<a href="{{ route('admin-profile') }}" class="btn btn-sm btn-light-success font-weight-bolder py-2 px-5">Edit Profile</a>
+							<a href="{{ route('admin-profile') }}" class="btn btn-sm btn-light-success font-weight-bolder ">Edit Profile</a>
+
 							<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById
-							('logout-form').submit();" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Logout</a>
+							('logout-form').submit();" class="btn btn-sm btn-light-primary font-weight-bolder text-danger">Logout</a>
 							
 							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 								@csrf

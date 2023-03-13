@@ -97,25 +97,25 @@
                     
 
                     <div class="form-group row">
-                      <label class="col-3 col-form-label">Expiry Year</label>
+                      <label class="col-3 col-form-label">Expiry Years</label>
                       <div class="col-3">
-                          <input type="number" name="year" class="form-control form-control-solid">  
+                          <input type="number" name="year" class="form-control form-control-solid" placeholder="1">  
                       </div>
-                      <label class="col-3 col-form-label">Expiry Month</label>
+                      <label class="col-3 col-form-label">Expiry Months</label>
                       <div class="col-3">
-                          <input type="number" name="month" class="form-control form-control-solid">  
+                          <input type="number" name="month" class="form-control form-control-solid" placeholder="1">  
                       </div>
                     </div>
 
                        
                     <div class="form-group row">
-                      <label class="col-3 col-form-label">Expiry Day</label>
+                      <label class="col-3 col-form-label">Expiry Days</label>
                       <div class="col-3">
-                          <input type="number" name="days" class="form-control form-control-solid">  
+                          <input type="number" name="days" class="form-control form-control-solid" placeholder="1">  
                       </div>
                       <label class="col-3 col-form-label">Expiry hours</label>
                       <div class="col-3">
-                          <input type="number" name="hours" class="form-control form-control-solid">  
+                          <input type="number" name="hours" class="form-control form-control-solid" placeholder="1">  
                       </div>
                     </div>
 
