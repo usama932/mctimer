@@ -54,9 +54,9 @@
 							<!--begin::Title-->
 							<!--begin::Form group-->
 							<div class="form-group">
-
+							
 								<label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" placeholder="{{ $old_email ??  old('email') ??  null }}" value="{{ $old_email ??  old('email') ??  null }}"  />
+								<input class="@error('email') is-invalid @enderror form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" name="email" placeholder="@if (Session::has('old_email')) {{ Session::get('old_email') }} @endif" value="@if (Session::has('old_email')) {{ Session::get('old_email') }} @endif"  />
 								@error('email')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
 							</div>
 							<!--end::Form group-->

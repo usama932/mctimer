@@ -66,9 +66,9 @@ class LoginController extends Controller
                 
             }
         }else{
-
+          
             return redirect()->route('login')
-                ->with(['error'=>'Authentication Failed. Email or Password Is Invalid.',"old_email"=> $request->email]);
+                ->with(['error'=>'Authentication Failed. Email or Password Is Invalid.','old_email'=> $request->email]);
         }
 
     }
