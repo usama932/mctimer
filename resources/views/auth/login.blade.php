@@ -37,7 +37,7 @@
 					<!--begin::Signin-->
 					<div class="login-form login-signin">
 						<!--begin::Form-->
-						<form class="form" action="{{ route('login') }}" method="post" novalidate="novalidate" >
+						<form class="form" action="{{ route('login') }}" method="post" autocomplete="on" >
 
 							@csrf
 
