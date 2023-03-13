@@ -56,7 +56,14 @@ class LoginController extends Controller
                
                 return redirect()->route('admin.dashboard');
             }else{
-                return redirect()->route('client.dashboard');
+                if(auth()->user()->is_admin == 0 && auth()->user()->active = 1){
+                    return redirect()->route('client.dashboard');
+                }
+                else{
+                    return redirect()->route('login')
+                                    ->with('error','Authentication Failed. You are not Approved user.');
+                }
+                
             }
         }else{
 
