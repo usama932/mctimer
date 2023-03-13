@@ -30,12 +30,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Body-->
 <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 
-@include('admin.partials._page-loader')
-@include('admin.layouts.layout')
-@include('admin.partials._extras.offcanvas.quick-user')
-@include('admin.partials._extras.scrolltop')
-@include('admin.partials._extras.toolbar')
-@include('admin.partials._extras.offcanvas.demo-panel')
+@include('client.partials._page-loader')
+@include('client.layouts.layout')
+@include('client.partials._extras.offcanvas.quick-user')
+@include('client.partials._extras.scrolltop')
+@include('client.partials._extras.toolbar')
+@include('client.partials._extras.offcanvas.demo-panel')
 
 <!--[html-partial:include:{"file":"partials/_page-loader.html"}]/-->
 
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
     };
 </script>
 
-@include('admin.partials._scripts')
+@include('client.partials._scripts')
 </body>
 
 <!--end::Body-->
