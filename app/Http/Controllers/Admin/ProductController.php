@@ -147,7 +147,7 @@ class ProductController extends Controller
 				$file = $request->file('image');
 				$destinationPath = public_path('/uploads');
 				//$extension = $file->getProductOriginalExtension('logo');
-				$thumbnail = $file->getProductOriginalName('image');
+				$thumbnail = $file->getClientOriginalName('image');
 				$thumbnail = rand() . $thumbnail;
 				$request->file('image')->move($destinationPath, $thumbnail);
 				
@@ -197,13 +197,28 @@ class ProductController extends Controller
 		$hours = $request->hours  ?? '0';
 
 		$expiry =array("year"=>$year, "month"=>$month, "days"=>$days,"hours"=>$hours);
-	
+		$products = Product::findOrFail($id);
+		$thumbnail = $products->image;
 		$expiry_date = json_encode($expiry , true);
-
+		if ($request->hasFile('image')) {
+			if ($request->file('image')->isValid()) {
+				$this->validate($request, [
+					'image' => 'required|mimes:jpeg,png,jpg'
+				]);
+				$file = $request->file('image');
+				$destinationPath = public_path('/uploads');
+				//$extension = $file->getProductOriginalExtension('logo');
+				$thumbnail = $file->getClientOriginalName('image');
+				$thumbnail = rand() . $thumbnail;
+				$request->file('image')->move($destinationPath, $thumbnail);
+				
+			}
+		}
         $product = Product::where('id',$id)->update([
             'name'          => $request->name,
             'category_id'   => $request->category,
             'expiry_date'   => $expiry_date,
+			'image'			=> $thumbnail,
 
         ]);
         Session::flash('success_message', 'Great! Product has been updated successfully!');
