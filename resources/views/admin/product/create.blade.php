@@ -93,6 +93,7 @@
                       <div class="col-9">
                         <input type="file" name="image" class="form-control form-control-solid">
                       </div>
+                      <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
                     </div>
                     
 
