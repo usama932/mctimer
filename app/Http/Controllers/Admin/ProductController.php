@@ -128,7 +128,8 @@ class ProductController extends Controller
 		
         $this->validate($request, [
 		    'name'      => 'required|max:255',
-            'category'  => 'required'
+            'category'  => 'required',
+			'image' => 'max:300000',
 	    ]);
 		
 		$year = $request->year ?? '0';
@@ -188,6 +189,7 @@ class ProductController extends Controller
         $this->validate($request, [
 		    'name'      => 'required|max:255',
             'category'  => 'required',
+			'image' => 'max:300000',
            
 		
 	    ]);
