@@ -92,8 +92,9 @@
                       <label class="col-3">Thumbnail Image</label>
                       <div class="col-9">
                         <input type="file" name="image" class="form-control form-control-solid">
+                         <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
                       </div>
-                      <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
+                     
                     </div>
                     
 

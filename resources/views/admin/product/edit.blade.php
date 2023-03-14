@@ -94,9 +94,10 @@
 
 
                         <input type="file" class="form-control form-control-solid mb-3" name="iamge" id="image">
+                         <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
                         <img src="{{asset("uploads/$products->image")}}" width="150px" height="100px" alt="">
 
-                        <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
+                       
                       </div>
                     </div>
 
