@@ -36,6 +36,7 @@ class AuthController extends ApiController
                     'email' => 'required|string|unique:users,email',
                     'password' => 'required',
                     'name'    => 'required|string',
+                    'phone'    => 'required|numeric',
 
                 ));
 
@@ -52,6 +53,7 @@ class AuthController extends ApiController
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
                 'email' => $request->email,
+                'phone' => $request->phone,
                 'is_admin' => 0,
                 'active'   => 0,
             ]);
