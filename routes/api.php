@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/signup', 'api\AuthController@register');
+Route::post('/register', 'api\AuthController@register');
 
 Route::post('/login', 'api\AuthController@login');
 Route::post('forgot-password', 'api\AuthController@forgotPassword');
