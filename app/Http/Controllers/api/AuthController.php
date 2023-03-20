@@ -44,7 +44,8 @@ class AuthController extends ApiController
             {
                     $error = $validate_request->errors()->first();
                     $res = [
-                        'error' => $error,
+                        'message' => $error,
+                        'error' => 'true',
                     ];
                     return response()->json($res, 200);
             }
