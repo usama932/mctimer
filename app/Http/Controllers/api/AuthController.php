@@ -183,7 +183,7 @@ class AuthController extends ApiController
 
                 'message' => "Reset password link sent on your email ",
 
-                'error' => true
+                'error' => "false"
 
             ], 200);
 

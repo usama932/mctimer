@@ -26,12 +26,14 @@ class CategoryController extends Controller
         if(!empty($categories)){
             $res = [
                 'categories' => $categories,
+                'error' => "false"
             ];
             return response()->json($res, 200);
         }
         else{
             $res = [
                 'categories' => 'Not Found',
+                'error' => "false"
             ];
             return response()->json($res, 200);
         }
