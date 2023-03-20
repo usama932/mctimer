@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Validation\Rules\Password as RulesPassword;
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AuthController extends ApiController
 {
@@ -60,6 +60,7 @@ class AuthController extends ApiController
             $token = $user->createToken('apiToken')->plainTextToken;
 
             $res = [
+                'error' =>'true',
                 'user' => $user,
                 'token' => $token
             ];
@@ -67,10 +68,8 @@ class AuthController extends ApiController
             return response()->json($res, 200);
         }catch(Exception $e)
         {
-
-
-
-            return $this->errorResponse($e->getMessage(), 200);
+          
+            return $this->errorResponse(['message' => $e->getMessage(),  'error' => 'true']);
 
         }
             
@@ -91,19 +90,22 @@ class AuthController extends ApiController
         if (!$user || !Hash::check($data['password'], $user->password)) {
            
             return response([
-                'msg' => 'incorrect username or password'
+                'msg' => 'incorrect username or password',
+                'error' => 'true'
             ], 401);
         }
         if($user->active != '1'){
             return response([
-                'msg' => 'You are not verified person'
+                'msg' => 'You are not verified person',
+                'error' => 'true'
             ], 401);
         }else{
             $token = $user->createToken('apiToken')->plainTextToken;
 
             $res = [
                 'user' => $user,
-                'token' => $token
+                'token' => $token,
+                 'error' => 'false'
             ];
     
             return response()->json($res, 200);
@@ -112,7 +114,7 @@ class AuthController extends ApiController
 
 
 
-            return $this->errorResponse($e->getMessage(), 200);
+            return $this->errorResponse(['message' => $e->getMessage(),  'error' => 'true']);
 
         }
 
