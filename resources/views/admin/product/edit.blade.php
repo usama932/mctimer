@@ -136,7 +136,7 @@
                       </div>
                       <label class="col-3 col-form-label">Expiry hours</label>
                       <div class="col-3">
-                        <select id="days" name="days" class="form-control form-control-solid ">
+                        <select id="days" name="hours" class="form-control form-control-solid ">
                           @for ($i = 0; $i <= 24; ++$i) {
                             <option value="{{ $i }}" class="form-control form-control-solid" @if($i == $data->hours) selected @endif>{{ $i }}</option>
                           
