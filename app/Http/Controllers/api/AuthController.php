@@ -61,7 +61,7 @@ class AuthController extends ApiController
             $token = $user->createToken('apiToken')->plainTextToken;
 
             $res = [
-                'error' =>'true',
+                'error' =>'false',
                 'user' => $user,
                 'token' => $token
             ];
