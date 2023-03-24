@@ -172,21 +172,37 @@ class AuthController extends ApiController
     public function forgotPassword(Request $request)
     {
      
-        $credentials = request()->validate(['email' => 'required|email']);
-
-
-
-        Password::sendResetLink($credentials);
-
+        try
         {
+
+            $data = $request->validate([
+                'email' => 'required|email',
+            
+            ]);
+
+            Password::sendResetLink($credentials);
+
+            {
+
+                return response([
+
+                    'message' => "Reset password link sent on your email ",
+
+                    'error' => "false"
+
+                ], 200);
+
+            }
+        }   
+        catch(Exception $e){
 
             return response([
 
-                'message' => "Reset password link sent on your email ",
+                'message' => "Email required",
 
-                'error' => "false"
+                "error" => false
 
-            ], 200);
+            ],200);
 
         }
     }
