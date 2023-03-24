@@ -172,6 +172,8 @@ class AuthController extends ApiController
     public function forgotPassword(Request $request)
     {
      
+        $credentials = request()->validate(['email' => 'required|email']);
+
         try
         {
 
@@ -200,7 +202,7 @@ class AuthController extends ApiController
 
                 'message' => "Email required",
 
-                "error" => false
+                "error" => true
 
             ],200);
 
