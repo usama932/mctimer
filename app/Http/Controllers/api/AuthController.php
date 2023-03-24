@@ -172,11 +172,11 @@ class AuthController extends ApiController
     public function forgotPassword(Request $request)
     {
      
-        $credentials = request()->validate(['email' => 'required|email']);
+        
 
         try
         {
-
+            $credentials = request()->validate(['email' => 'required|email']);
             $data = $request->validate([
                 'email' => 'required|email',
             
