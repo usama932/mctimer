@@ -138,7 +138,8 @@ class AuthController extends ApiController
 
             if ($user){
 
-                $accessToken = auth()->user()->token()->delete();
+
+                $accessToken = auth()->user()->tokens()->delete();
 
 
 
