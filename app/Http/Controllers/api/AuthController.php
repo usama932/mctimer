@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AuthController extends ApiController
 {
-  
+
 
     public function register(Request $request)
     {
@@ -49,7 +49,7 @@ class AuthController extends ApiController
                     ];
                     return response()->json($res, 200);
             }
-        
+
             $user = User::create([
                 'name' => $request->name,
                 'password' => bcrypt($request->password),
@@ -69,16 +69,16 @@ class AuthController extends ApiController
             return response()->json($res, 200);
         }catch(Exception $e)
         {
-          
+
             return $this->errorResponse(['message' => $e->getMessage(),  'error' => 'true']);
 
         }
-            
-      
+
+
     }
 
     public function login(Request $request)
-    {   
+    {
         try
         {
         $data = $request->validate([
@@ -87,9 +87,15 @@ class AuthController extends ApiController
         ]);
 
         $user = User::where('email', $data['email'])->first();
-
+        $token = $user->tokens()->first();
+        if($token){
+            return response([
+                'msg' => 'You are ready logged in any other device',
+                'error' => true
+            ], 401);
+        }
         if (!$user || !Hash::check($data['password'], $user->password)) {
-           
+
             return response([
                 'msg' => 'incorrect username or password',
                 'error' => 'true'
@@ -108,7 +114,7 @@ class AuthController extends ApiController
                 'token' => $token,
                  'error' => 'false'
             ];
-    
+
             return response()->json($res, 200);
         }
         }catch(Exception $e){
@@ -119,7 +125,7 @@ class AuthController extends ApiController
 
         }
 
-      
+
     }
 
     public function logout()
@@ -128,13 +134,13 @@ class AuthController extends ApiController
 
             $user = auth()->user();
 
-          
+
 
             if ($user){
 
                 $accessToken = auth()->user()->token()->delete();
 
-              
+
 
                 return response([
 
@@ -171,15 +177,15 @@ class AuthController extends ApiController
     }
     public function forgotPassword(Request $request)
     {
-     
-        
+
+
 
         try
         {
             $credentials = request()->validate(['email' => 'required|email']);
             $data = $request->validate([
                 'email' => 'required|email',
-            
+
             ]);
 
             Password::sendResetLink($credentials);
@@ -195,7 +201,7 @@ class AuthController extends ApiController
                 ], 200);
 
             }
-        }   
+        }
         catch(Exception $e){
 
             return response([
