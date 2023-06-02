@@ -71,20 +71,21 @@
                     <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
                       <label class="col-3">Name</label>
                       <div class="col-9">
-                        {{ Form::text('name', null, ['class' => 'form-control form-control-solid','id'=>'name','placeholder'=>'Enter Name','required'=>'true']) }}
+                        {{ Form::text('name',  old('name'), ['class' => 'form-control form-control-solid','id'=>'name','placeholder'=>'Enter Name','required'=>'true']) }}
                         <span class="text-danger">{{ $errors->first('name') }}</span>
                       </div>
                     </div>
                     
-                    <div class="form-group row {{ $errors->has('name') ? 'has-error' : '' }}">
+                    <div class="form-group row {{ $errors->has('category') ? 'has-error' : '' }}">
                       <label class="col-3">Categories</label>
                       <div class="col-9">
                         <select class="form-control form-control-solid" name="category" id="category-select">
                           <option value="" class="form-control form-control-solid">--Please choose an option--</option>
                           @foreach($categories as $catgory)
-                            <option value="{{$catgory->id}}" class="form-control form-control-solid">{{$catgory->name}}</option>
+                            <option value="{{$catgory->id}}" {{ old('category') == $catgory->id ? 'selected' : '' }} class="form-control form-control-solid">{{$catgory->name}}</option>
                           @endforeach
                         </select>
+                        <span class="text-danger">{{ $errors->first('category') }}</span>
                       </div>
                     </div>
                     
@@ -93,6 +94,7 @@
                       <div class="col-9">
                         <input type="file" name="image" class="form-control form-control-solid">
                          <small class=" form-text text-muted  ">Image size is must less than 2MB</small>
+                         <span class="text-danger">{{ $errors->first('image') }}</span>
                       </div>
                      
                     </div>
@@ -103,7 +105,7 @@
                       <div class="col-3">
                         <select id="year" name="year" class="form-control form-control-solid ">
                           @for ($i = 0; $i <= 12; ++$i) {
-                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                            <option value="{{ $i }}" {{ old('year') == $i ? 'selected' : '' }} class="form-control form-control-solid">{{ $i }}</option>
                           }
                           @endfor
                         </select>
@@ -111,9 +113,9 @@
                       </div>
                       <label class="col-3 col-form-label">Expiry Months</label>
                       <div class="col-3">
-                          <select id="month" name="month" class="form-control form-control-solid">
+                          <select id="month" name="month"  class="form-control form-control-solid">
                             @for ($i = 0; $i <= 12; ++$i) {
-                              <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                              <option value="{{ $i }}" {{ old('month') == $i ? 'selected' : '' }} class="form-control form-control-solid">{{ $i }}</option>
                             }
                             @endfor
                           </select>  
@@ -124,9 +126,9 @@
                     <div class="form-group row">
                       <label class="col-3 col-form-label">Expiry Days</label>
                       <div class="col-3">
-                        <select id="days" name="days" class="form-control form-control-solid ">
+                        <select id="days" name="days"  class="form-control form-control-solid ">
                           @for ($i = 0; $i <= 31; ++$i) {
-                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                            <option value="{{ $i }}" {{ old('days') == $i ? 'selected' : '' }} class="form-control form-control-solid">{{ $i }}</option>
                           }
                           @endfor
                         </select>  
@@ -135,7 +137,7 @@
                       <div class="col-3">
                         <select id="days" name="hours" class="form-control form-control-solid ">
                           @for ($i = 0; $i <= 24; ++$i) {
-                            <option value="{{ $i }}" class="form-control form-control-solid">{{ $i }}</option>
+                            <option value="{{ $i }}" {{ old('hours') == $i ? 'selected' : '' }} class="form-control form-control-solid">{{ $i }}</option>
                           }
                           @endfor
                         </select>  

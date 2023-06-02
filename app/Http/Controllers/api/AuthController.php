@@ -87,7 +87,13 @@ class AuthController extends ApiController
         ]);
 
         $user = User::where('email', $data['email'])->first();
-
+        $token = $user->tokens()->first();
+        if($token){
+            return response([
+                'msg' => 'You are ready logged in any other device',
+                'error' => true
+            ], 401);
+        }
         if (!$user || !Hash::check($data['password'], $user->password)) {
            
             return response([
