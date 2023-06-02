@@ -143,7 +143,7 @@ class ProductController extends Controller
 		if ($request->hasFile('image')) {
 			if ($request->file('image')->isValid()) {
 				$this->validate($request, [
-					'image' => 'required|mimes:jpeg,png,jpg'
+					'image' => 'required|mimes:jpeg,png,jpg,JPEG,PNG,JPG,gif,GIF,bmp,BMP,tiff,TIFF,webp,WEBP,svg,SVG|max:2048'
 				]);
 				$file = $request->file('image');
 				$destinationPath = public_path('/uploads');
@@ -205,7 +205,7 @@ class ProductController extends Controller
 		if ($request->hasFile('image')) {
 			if ($request->file('image')->isValid()) {
 				$this->validate($request, [
-					'image' => 'required|mimes:jpeg,png,jpg'
+					'image' => 'required|mimes:jpeg,png,jpg,JPEG,PNG,JPG,gif,GIF,bmp,BMP,tiff,TIFF,webp,WEBP,svg,SVG|max:2048'
 				]);
 				$file = $request->file('image');
 				$destinationPath = public_path('/uploads');
