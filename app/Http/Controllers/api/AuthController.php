@@ -91,7 +91,7 @@ class AuthController extends ApiController
         if($token){
             return response([
                 'msg' => 'You are ready logged in any other device',
-                'error' => true
+                'error' => 'true'
             ], 401);
         }
         if (!$user || !Hash::check($data['password'], $user->password)) {
