@@ -58,12 +58,12 @@ class AuthController extends ApiController
                 'is_admin' => 0,
                 'active'   => 0,
             ]);
-            $token = $user->createToken('apiToken')->plainTextToken;
+           // $token = $user->createToken('apiToken')->plainTextToken;
 
             $res = [
                 'error' =>'false',
                 'user' => $user,
-                'token' => $token
+                'token' => '',
             ];
 
             return response()->json($res, 200);
@@ -87,13 +87,7 @@ class AuthController extends ApiController
         ]);
 
         $user = User::where('email', $data['email'])->first();
-        $token = $user->tokens()->first();
-        if($token){
-            return response([
-                'msg' => 'You are ready logged in any other device',
-                'error' => 'true'
-            ], 401);
-        }
+
         if (!$user || !Hash::check($data['password'], $user->password)) {
 
             return response([
@@ -101,22 +95,30 @@ class AuthController extends ApiController
                 'error' => 'true'
             ], 401);
         }
-        if($user->active != '1'){
+        if($user->active != 1){
             return response([
                 'msg' => 'You are not verified person',
                 'error' => 'true'
             ], 401);
-        }else{
-            $token = $user->createToken('apiToken')->plainTextToken;
-
-            $res = [
-                'user' => $user,
-                'token' => $token,
-                 'error' => 'false'
-            ];
-
-            return response()->json($res, 200);
         }
+        $token = $user->tokens()->first();
+
+        if($token){
+            return response([
+                'msg' => 'You are ready logged in any other device',
+                'error' => 'true'
+            ], 401);
+        }
+        $token = $user->createToken('apiToken')->plainTextToken;
+
+        $res = [
+            'user' => $user,
+            'token' => $token,
+                'error' => 'false'
+        ];
+
+        return response()->json($res, 200);
+
         }catch(Exception $e){
 
 
