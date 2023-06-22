@@ -251,14 +251,17 @@ class AuthController extends ApiController
 
 
 
-        return response()->json($res, 200);
+
 
         }catch(Exception $e){
 
+            $res = [
 
+                'message' =>  $e->getMessage(),
 
-            return $this->errorResponse(['message' => $e->getMessage(),  'error' => 'true']);
+             ];
 
+             return response()->json($res, 401);
         }
 
     }
