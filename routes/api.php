@@ -28,7 +28,10 @@ Route::post('forgot-password', 'api\AuthController@forgotPassword');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     //Logout
-    
+
     Route::post('/logout', 'api\AuthController@logout');
     Route::get('get_products', 'api\CategoryController@get_product');
+
+
+    Route::post('/delete_account', 'api\AuthController@delete_account');
 });
