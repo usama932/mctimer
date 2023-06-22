@@ -231,7 +231,8 @@ class AuthController extends ApiController
             [$id, $token] = explode('|', $post_data['token'], 2);
             $token_data = DB::table('personal_access_tokens')->where('token', hash('sha256', $token))->first();
             $user_id = $token_data->tokenable_id;
-            dd($user_id);
+            $user  = User::find($user_id);
+            $user->delete();
             $res = [
 
                 'message' => 'Successfully deleted',
