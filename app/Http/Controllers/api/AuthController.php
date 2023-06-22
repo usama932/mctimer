@@ -228,8 +228,8 @@ class AuthController extends ApiController
 
         $post_data = $request->all();
         if (isset($post_data['token'])) {
-            [$id, $user_token] = explode('|', $post_data['user_token'], 2);
-            $token_data = DB::table('personal_access_tokens')->where('token', hash('sha256', $request->token))->first();
+            [$id, $token] = explode('|', $post_data['token'], 2);
+            $token_data = DB::table('personal_access_tokens')->where('token', hash('sha256', $token))->first();
             $user_id = $token_data->tokenable_id;
             dd($user);
             $res = [
