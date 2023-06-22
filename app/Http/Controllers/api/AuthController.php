@@ -227,19 +227,29 @@ class AuthController extends ApiController
         ]);
 
         $post_data = $request->all();
-        if (isset($post_data['user_token'])) {
+        if (isset($post_data['token'])) {
             [$id, $user_token] = explode('|', $post_data['user_token'], 2);
             $token_data = DB::table('personal_access_tokens')->where('token', hash('sha256', $request->token))->first();
             $user_id = $token_data->tokenable_id;
             dd($user);
+            $res = [
+
+                'message' => 'Successfully deleted',
+                     'error' => 'false'
+             ];
+
+        }
+        else{
+            $res = [
+
+                'message' => 'Invalid Token',
+                     'error' => 'false'
+             ];
+
         }
 
 
-        $res = [
 
-           'message' => 'Successfullly deleted',
-                'error' => 'false'
-        ];
 
         return response()->json($res, 200);
 
