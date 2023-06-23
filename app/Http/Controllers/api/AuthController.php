@@ -238,14 +238,15 @@ class AuthController extends ApiController
                 'message' => 'Successfully deleted',
                      'error' => 'false'
              ];
-
+              return response()->json($res, 401);
         }
         else{
             $res = [
 
                 'message' => 'Invalid Token',
-                     'error' => 'false'
+                     'error' => 'true'
              ];
+              return response()->json($res, 200);
 
         }
 
