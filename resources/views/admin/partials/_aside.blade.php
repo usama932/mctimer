@@ -5,7 +5,7 @@
     <div class="brand flex-column-auto" id="kt_brand">
 
         <!--begin::Logo-->
-        <a href="{{ route('admin.dashboard') }}" class="brand-logo" style="width:82px !important; height:82px !important; margin:auto !important;">
+        <a href="{{ route('admin.dashboard') }}" class="brand-logo" style="width:42px !important; height:40px !important; ">
             <img alt="Logo" src="{{ asset($logo) }}" />
         </a>
 
@@ -109,7 +109,7 @@
                 <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'categories') {
                     echo 'menu-item-active';
                     } ?>" aria-haspopup="true">
-                    <a href="{{ route('categories.index') }}" class="menu-link">
+                    <a href="#" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Cooking/Dishes.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -121,30 +121,12 @@
                                 </svg><!--end::Svg Icon-->
                             </span>
                         </span>
-                        <span class="menu-text">Categories</span>
+                        <span class="menu-text">Place Ads</span>
                     </a>
                 </li>
 
                 
-                <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'products') {
-                    echo 'menu-item-active';
-                    } ?>" aria-haspopup="true">
-                    <a href="{{ route('products.index') }}" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo8/dist/../src/media/svg/icons/Design/Interselect.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path d="M6,9 L6,15 C6,16.6568542 7.34314575,18 9,18 L15,18 L15,18.8181818 C15,20.2324881 14.2324881,21 12.8181818,21 L5.18181818,21 C3.76751186,21 3,20.2324881 3,18.8181818 L3,11.1818182 C3,9.76751186 3.76751186,9 5.18181818,9 L6,9 Z M17,16 L17,10 C17,8.34314575 15.6568542,7 14,7 L8,7 L8,6.18181818 C8,4.76751186 8.76751186,4 10.1818182,4 L17.8181818,4 C19.2324881,4 20,4.76751186 20,6.18181818 L20,13.8181818 C20,15.2324881 19.2324881,16 17.8181818,16 L17,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                    <path d="M9.27272727,9 L13.7272727,9 C14.5522847,9 15,9.44771525 15,10.2727273 L15,14.7272727 C15,15.5522847 14.5522847,16 13.7272727,16 L9.27272727,16 C8.44771525,16 8,15.5522847 8,14.7272727 L8,10.2727273 C8,9.44771525 8.44771525,9 9.27272727,9 Z" fill="#000000"/>
-                                </g>
-                            </svg><!--end::Svg Icon-->
-                            </span>
-                            </span>
-                        </span>
-                        <span class="menu-text">Products</span>
-                    </a>
-                </li>
+             
 
          
                 <li class="menu-item <?php if (Request::segment(1) == 'admin' && Request::segment(2) == 'setting') {

@@ -18,11 +18,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $title = 'MCtimer Admin Dashboard';
-        $product = Product::count();
-        $category  = Category::count();
+        $title = 'DealerHub Admin Panel';
+        
         $users  = User::where('is_admin',"0")->count();
-        return view('admin.dashboard.index',compact('title','users','product','category'));
+        return view('admin.dashboard.index',compact('title','users'));
     }
 
     /**
